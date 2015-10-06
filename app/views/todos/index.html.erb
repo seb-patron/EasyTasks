@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<h1>Current Tasks</h1>
+
+<table>
+
+  <tbody>
+    <% @todos.each do |todo| %>
+    <div class="jumbotron">
+        <h3><strong class="has-tooltip" data-toggle="tooltip" title="<%= "Created on #{todo.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{todo.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>"><%= todo.title %></strong></h3><br>
+        <p>
+          <%= todo.notes %><br>
+    </p>
+        <p>
+            <%= link_to edit_todo_path(todo), class: 'btn btn-info' do %>
+            <i class="glyphicon glyphicon-pencil"> Edit </i>
+            <% end %>
+
+          <%= link_to todo, method: :delete, class: 'btn btn-success'  do%>
+          <i class="glyphicon glyphicon-ok"> Complete</i>
+          <% end %>
+      </p>
+    </div>
+    <% end %>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_todo_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Task
+<% end %>
