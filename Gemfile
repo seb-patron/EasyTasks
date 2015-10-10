@@ -3,11 +3,21 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-# Use sqlite3 as the database for Active Record
-# These gems have been changed to be compatible with Heroku
-gem 'sqlite3', group: :development
-gem 'pg', '0.18.1', group: :production
-gem 'rails_12factor', group: :production
+
+
+# Switches to Postgresql when delpoyed on heroku
+group :production do
+
+	gem 'pg'
+	gem 'rails_12factor'
+end
+
+# Use sqlite3 as the database for Active Record when in local development mode
+group :development do
+
+	gem 'sqlite3'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
