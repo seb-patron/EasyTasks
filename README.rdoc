@@ -8,6 +8,9 @@
 
 Bootstrap: Both Sass and Less gems of bootstrap are in Gem file. Less version is current version being run
 
+The database is no stock ruby. It has been modified so that it can be deployed to Heroku. Most importantly, the gems
+file now imports new gems to help support functionality, and database file has added a postgresql adapter
+
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

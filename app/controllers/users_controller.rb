@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 			session[:user_id] = @user.id
 			redirect_to '/'
 		else
+			flash[:success] = 'Signup failed :('
 			redirect_to 'signup'
 		end
 	end
